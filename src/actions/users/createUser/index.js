@@ -5,14 +5,18 @@ const createUser = async ({
   lastName,
   email,
   password,
-  userTypeId
+  userTypeId,
+  phone = null,
+  address = null
 }) => {
   const user = await insertUser({
     firstName,
     lastName,
     email,
     password,
-    userTypeId
+    userTypeId,
+    phone,
+    address
   });
 
   return { user };

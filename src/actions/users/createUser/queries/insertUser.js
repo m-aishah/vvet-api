@@ -5,7 +5,9 @@ const insertUser = ({
   lastName,
   email,
   password,
-  userTypeId
+  userTypeId,
+  phone,
+  address
 }) => submitQuery`
   INSERT INTO users
   (
@@ -13,7 +15,9 @@ const insertUser = ({
     last_name,
     email,
     password,
-    user_type_id
+    user_type_id,
+    phone,
+    address
   )
   VALUES
   (
@@ -21,7 +25,9 @@ const insertUser = ({
     ${lastName},
     ${email},
     SHA2(CONCAT(${password},${process.env.PASSWORD_SALT}), 224),
-    ${userTypeId}
+    ${userTypeId},
+    ${phone},
+    ${address}
   )
 `;
 
